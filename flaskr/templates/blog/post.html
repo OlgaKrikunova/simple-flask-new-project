@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ post['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h1>{{ post['title'] }}</h1>
+  <p>{{ post['created'] }}</p>
+  <div>{{ post['body'] }}</div>
+  <p><a href="{{ url_for('blog.index') }}">← Back to all posts</a></p>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+ {% block title %}Edit{% endblock %}
+
+
+{% block content %}
+  <h1>User profile: {{ user['username'] }}</h1>
+  <ul>
+    <li><strong>Email:</strong> {{ user['email'] or "not specified." }}</li>
+    <li><strong>Registered:</strong> {{ user['created'] }}</li>
+    <li><strong>About me:</strong> {{ user['bio'] or "No information." }}</li>
+  </ul>
+
+  {% if g.user and g.user['id'] == user['id'] %}
+    <a href="{{ url_for('user.edit_profile', id=user['id']) }}">Edit profile</a><br>
+     <br><a href="{{ url_for('index') }}">← Back to posts</a>
+  {% endif %}
+{% endblock %}
